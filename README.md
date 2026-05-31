@@ -13,7 +13,6 @@ Construida con **React + Vite + Tailwind CSS + Supabase + Leaflet**.
 | Mapa | `/mapa` | Vista de todos los reportes con filtros |
 | Reportar | `/reportar` | Formulario + mapa draggable para nuevo reporte |
 
-## Pasos para configurar
 
 ### 1. Clonar / descomprimir y entrar al directorio
 
@@ -26,49 +25,6 @@ cd viamedellin
 ```bash
 npm install
 ```
-
-### 3. Configurar Supabase
-
-1. Ve a [supabase.com](https://supabase.com) y crea una cuenta gratuita
-2. Crea un nuevo proyecto
-3. En el SQL Editor, ejecuta el contenido de **`schema.sql`** (crea las tablas, RLS, trigger y bucket de fotos)
-4. Copia tus credenciales desde **Settings → API**
-
-### 4. Variables de entorno
-
-```bash
-cp .env.example .env
-```
-
-Edita `.env` y rellena:
-
-```env
-VITE_SUPABASE_URL=https://xxxxxxxxxxxx.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
-
-### 5. Correr en desarrollo
-
-```bash
-npm run dev
-```
-
-Abre [http://localhost:5173](http://localhost:5173)
-
-### 6. Build para producción
-
-```bash
-npm run build
-npm run preview   # para probar el build localmente
-```
-
-## Deploy gratuito con Vercel
-
-```bash
-npm install -g vercel
-vercel
-```
-Agrega las variables `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` en el dashboard de Vercel.
 
 ## Estructura del proyecto
 
@@ -114,22 +70,14 @@ viamedellin/
 
 ## Funcionalidades
 
-- ✅ Registro e inicio de sesión (Supabase Auth)
-- ✅ Perfil de usuario (nombre, apellido)
-- ✅ Mapa de Medellín oscuro con marcadores de colores según estado
-- ✅ Filtros por estado: Urgente / Pendiente / Resuelto
-- ✅ Panel lateral en PC, drawer en móvil
-- ✅ Actualización en tiempo real (Supabase Realtime)
-- ✅ Formulario de reporte con mapa draggable
-- ✅ Geolocalización automática (GPS del navegador)
-- ✅ Geocodificación inversa (dirección a partir de coordenadas)
-- ✅ Subida de fotos al Storage de Supabase
-- ✅ Totalmente responsivo: móvil-first + layout de PC
-- ✅ Animaciones y microinteracciones
-- ✅ Indicador de fuerza de contraseña
+-  Registro e inicio de sesión 
+-  Perfil de usuario (nombre, apellido)
+-  Mapa de Medellín 
+-  Filtros por estado: Urgente / Pendiente / Resuelto
+-  Panel lateral en PC, drawer en móvil
+-  Formulario de reporte con mapa 
+-  Geolocalización automática
+-  Subida de fotos al Storage de Supabase
+-  Totalmente responsivo
+-  Indicador de fuerza de contraseña
 
-## Notas
-
-- El Storage de Supabase es **público** en este proyecto para simplificar. Para producción real, considera usar URLs firmadas.
-- La geocodificación usa **Nominatim** (OpenStreetMap), que es gratuita pero tiene límite de 1 solicitud/segundo. Para mayor carga, considera Mapbox Geocoding o Google Geocoding API.
-- Los reportes se ordenan por fecha de creación (más reciente primero).
